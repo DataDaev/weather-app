@@ -39,6 +39,13 @@ export default function App() {
         {weather.main && (
           <div className="weather-animation">
             <WeatherAnimation weatherType={currentWeather} />
+            <span>
+              <p>
+                {weather.weather[0].main} &nbsp; {convertedTemp.toFixed(2)}
+                &deg;F
+              </p>
+            </span>
+            <p className="description">{weather.weather[0].description}</p>
           </div>
         )}
         <div className="search">
@@ -56,7 +63,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="weather-output">
+        {/* <div className="weather-output">
           {weather.weather && weather.weather.length > 0 && (
             <ul className="weather-list">
               <li>{weather.name}</li>
@@ -65,7 +72,7 @@ export default function App() {
               <li>{weather.weather[0].description}</li>
             </ul>
           )}
-        </div>
+        </div> */}
       </div>
     </>
   );
