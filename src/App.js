@@ -12,6 +12,7 @@ export default function App() {
   const [weather, setWeather] = useState({});
   const convertedTemp = (weather.main?.temp - 273.15) * (9 / 5) + 32; //Converted Kelvin to Fahrenheit
   const currentWeather = weather.main && weather.weather[0].main;
+
   async function weatherData() {
     try {
       const res = await fetch(
@@ -19,15 +20,10 @@ export default function App() {
       );
       const data = await res.json();
       setWeather(data);
-      console.log(data);
     } catch (error) {
       console.error("Error fetching weather data:", error);
     }
   }
-
-  // useEffect(function () {
-  //   weatherData();
-  // }, []);
 
   function handleKeyPress(e) {
     if (e.key === "Enter") {
@@ -47,7 +43,6 @@ export default function App() {
         )}
         <div className="search">
           <input
-            className="search-bar"
             placeholder="City (Ex: Phoenix)"
             type="text"
             value={search}
@@ -56,7 +51,7 @@ export default function App() {
           />
           <div>
             <button className="search-button" onClick={(e) => weatherData(e)}>
-              Search
+              🔍
             </button>
           </div>
         </div>
