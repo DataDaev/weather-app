@@ -45,7 +45,7 @@ export default function App() {
                 &deg;F
               </p>
             </span>
-            <p className="description">{weather.weather[0].description}</p>
+            <p className="description">{`(${weather.weather[0].description})`}</p>
           </div>
         )}
         <div className="search">
@@ -62,17 +62,6 @@ export default function App() {
             </button>
           </div>
         </div>
-
-        {/* <div className="weather-output">
-          {weather.weather && weather.weather.length > 0 && (
-            <ul className="weather-list">
-              <li>{weather.name}</li>
-              <li>{convertedTemp.toFixed(2)}&deg;F</li>
-              <li>{weather.weather[0].main}</li>
-              <li>{weather.weather[0].description}</li>
-            </ul>
-          )}
-        </div> */}
       </div>
     </>
   );
